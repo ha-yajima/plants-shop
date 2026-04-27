@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mint and Leaf</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="fixed-logo">
+        <img src="images/logo.png" alt="">
+    </div>
+
+    <header>
+        <a href="index.html" class="logo"><img src="images/logo.png" alt="Mint and Leaf">
+        <span class="logo-text">Mint and Leaf</span> </a>
+        <div class="hamburger" id="js-hamburger">
+            <span class="line-top"></span><span class="line-mid"></span><span class="line-btm"></span>
+        </div>
+        <nav class="nav-menu" id="js-nav">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="index.html#concept">CONCEPT</a></li>
+                <li><a href="product.html">PRODUCT</a></li>
+                <li><a href="news.html">NEWS</a></li>
+                <li><a href="index.html#shop">SHOP</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<main>
+    <section class="page-header">
+        <div class="container">
+            <h1 class="js-fade">News</h1>
+            <p class="js-fade">お知らせ・イベント・ブログ</p>
+        </div>
+    </section>
+
+    <section class="news-page container">
+    <div class="filter-group js-fade">
+        <button class="filter-btn active" data-filter="all">ALL</button>
+        <button class="filter-btn" data-filter="INFO">INFO</button>
+        <button class="filter-btn" data-filter="EVENT">EVENT</button>
+        <button class="filter-btn" data-filter="BLOG">BLOG</button>
+        <button class="filter-btn" data-filter="CAMPAIGN">CAMPAIGN</button>
+    </div>
+
+    <ul class="news-list">
+        <li class="news-item" data-category="INFO">
+            <a href="news-detail.html?id=0">
+                <span class="date">2026.02.10</span>
+                <span class="category">INFO</span>
+                <span class="title">春の新作リースが入荷しました</span>
+            </a>
+        </li>
+        <li class="news-item" data-category="EVENT">
+            <a href="news-detail.html?id=1">
+                <span class="date">2026.02.05</span>
+                <span class="category">EVENT</span>
+                <span class="title">週末ワークショップ「ハーブと暮らす」開催</span>
+            </a>
+        </li>
+        <li class="news-item" data-category="INFO">
+            <a href="news-detail.html?id=2">
+                <span class="date">2026.01.28</span>
+                <span class="category">INFO</span>
+                <span class="title">オンラインショップの送料改定について</span>
+            </a>
+        </li>
+        <li class="news-item" data-category="BLOG">
+            <a href="news-detail.html?id=3">
+                <span class="date">2026.01.15</span>
+                <span class="category">BLOG</span>
+                <span class="title">スタッフが教える、冬のミントの育て方</span>
+            </a>
+        </li>
+        <li class="news-item" data-category="INFO">
+            <a href="news-detail.html?id=04">
+                <span class="date">2026.01.05</span>
+                <span class="category">INFO</span>
+                <span class="title">新年明けましておめでとうございます</span>
+            </a>
+        </li>
+        <li class="news-item" data-category="CAMPAIGN">
+            <a href="news-detail.html?id=05">
+                <span class="date">2025.12.20</span>
+                <span class="category">CAMPAIGN</span>
+                <span class="title">クリスマスギフトセット予約受付中</span>
+            </a>
+        </li>
+    </ul>
+</section>
+</main>
+
+<footer><p>© 2026 Mint and Leaf</p></footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+
+    
+</body>
+</html>

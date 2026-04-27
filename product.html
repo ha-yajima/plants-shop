@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mint and Leaf</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="fixed-logo">
+        <img src="images/logo.png" alt="">
+    </div>
+
+    <header>
+        <a href="index.html" class="logo"><img src="images/logo.png" alt="Mint and Leaf">
+        <span class="logo-text">Mint and Leaf</span> </a>
+        <div class="hamburger" id="js-hamburger">
+            <span class="line-top"></span><span class="line-mid"></span><span class="line-btm"></span>
+        </div>
+        <nav class="nav-menu" id="js-nav">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="index.html#concept">CONCEPT</a></li>
+                <li><a href="product.html">PRODUCT</a></li>
+                <li><a href="news.html">NEWS</a></li>
+                <li><a href="index.html#shop">SHOP</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+    <section class="page-header">
+        <div class="container">
+            <h1 class="js-fade">Products</h1>
+            <p class="js-fade">厳選された健やかな植物たち</p>
+        </div>
+    </section>
+
+    <section class="product-list container">
+    <div class="product-grid">
+        <a href="#" class="item js-fade" id="item1">
+            <span class="badge">NEW</span>
+            <img src="images/plant1.jpg" alt="カラテア">
+            <p>カラテア<br><span class="price">¥19,800</span></p>
+        </a>
+
+        <a href="#" class="item js-fade" id="item2">
+            <span class="badge">NEW</span>
+            <img src="images/plant2.jpg" alt="アグラオネマ">
+            <p>アグラオネマ<br><span class="price">¥19,800</span></p>
+        </a>
+
+        <a href="#" class="item js-fade" id="item3">
+            <img src="images/plant3.jpg" alt="カシワバゴムノキ">
+            <p>カシワバゴムノキ<br><span class="price">¥19,800</span></p>
+        </a>
+
+        <a href="#" class="item js-fade" id="item4">
+            <img src="images/plant4.jpg" alt="ガジュマル">
+            <p>ガジュマル<br><span class="price">¥19,800</span></p>
+        </a>
+
+        <a href="#" class="item js-fade" id="item5">
+            <img src="images/plant5.jpg" alt="フィロデンドロン">
+            <p>フィロデンドロン<br><span class="price">¥19,800</span></p>
+        </a>
+
+        <a href="#" class="item js-fade" id="item6">
+            <img src="images/plant6.jpg" alt="モンステラ">
+            <p>モンステラ<br><span class="price">¥19,800</span></p>
+        </a>
+
+        <a href="#" class="item js-fade">
+            <img src="images/plant7.jpg" alt="モンステラ">
+            <p>スキンダプサス・トレビー<br><span class="price">¥19,800</span></p>
+        </a>
+
+        <a href="#" class="item js-fade">
+            <img src="images/plant8.jpg" alt="モンステラ">
+            <p>モンステラ・タイコンステレーション<br><span class="price">¥19,800</span></p>
+        </a>
+
+        <a href="#" class="item js-fade">
+            <img src="images/plant9.jpg" alt="モンステラ">
+            <p>シンゴニウム・ポドフィラム<br><span class="price">¥19,800</span></p>
+        </a>
+
+    </div>
+</section>
+</main>
+
+<div id="modal" class="modal">
+    <span class="modal-close">&times;</span>
+    <div class="modal-content">
+        <img id="modal-img" src="" alt="">
+        <div class="modal-info">
+            <h2 id="modal-title">商品名</h2>
+            <p class="description">ここに植物の説明文が入ります。健やかに育った美しい一鉢です。</p>
+            <div class="details">
+                <p id="modal-price"></p>
+                <p>サイズ：8号（高さ約100cm） / 鉢：ラスターポット付き</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer><p>© 2026 Mint and Leaf</p></footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+
+    
+</body>
+</html>

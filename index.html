@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mint and Leaf</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="fixed-logo">
+        <img src="images/logo.png" alt="">
+    </div>
+
+    <header>
+        <a href="index.html" class="logo"><img src="images/logo.png" alt="Mint and Leaf">
+        <span class="logo-text">Mint and Leaf</span> </a>
+        <div class="hamburger" id="js-hamburger">
+            <span class="line-top"></span><span class="line-mid"></span><span class="line-btm"></span>
+        </div>
+        <nav class="nav-menu" id="js-nav">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="index.html#concept">CONCEPT</a></li>
+                <li><a href="product.html">PRODUCT</a></li>
+                <li><a href="news.html">NEWS</a></li>
+                <li><a href="#shop">SHOP</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero swiper" id="js-hero">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/hero1.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/hero2.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/hero3.png" alt=""></div>
+            </div>
+        </section>
+
+        <section id="concept" class="js-fade">
+            <div class="container">
+                <h2 class="english-title">CONCEPT<span class="sub-title">コンセプト</span></h2>
+                <p>日常に、ミントの風を。<br><br>
+                忙しない毎日の中で、ふと立ち止まる瞬間。<br>
+                視界に映る柔らかな緑と、鼻をくすぐる爽やかな香りは、<br>
+                心を解きほぐし、新しい呼吸を届けてくれます。<br><br>
+                Mint and Leaf は、ハーブと観葉植物を通じて、<br>
+                あなたの暮らしに「小さな余白」を提案します。</p>
+            </div>
+        </section>
+
+        <section id="product" class="js-fade">
+            <div class="container">
+                <h2 class="english-title">PRODUCT<span class="sub-title">商品一覧</span></h2>
+                <div class="product-grid">
+                <a href="product.html#item1" class="item">
+                    <span class="badge">NEW</span>
+                    <img src="images/plant1.jpg" alt="">
+                    <p>カラテア<br>
+                        <span class="price">¥19,800</span>
+                    </p>
+                </a>
+                <a href="product.html#item2" class="item">
+                    <span class="badge">NEW</span>
+                    <img src="images/plant2.jpg" alt="">
+                    <p>アグラオネマ<br>
+                        <span class="price">¥19,800</span>
+                    </p>
+                </a>
+                <a href="product.html#item3" class="item">
+                    <img src="images/plant3.jpg" alt="">
+                    <p>カシワバゴムノキ<br>
+                        <span class="price">¥19,800</span>
+                    </p>
+                </a>
+                <a href="product.html#item4" class="item">
+                    <img src="images/plant4.jpg" alt="">
+                    <p>ガジュマル<br>
+                        <span class="price">¥19,800</span>
+                    </p>
+                </a>
+                <a href="product.html#item5" class="item">
+                    <img src="images/plant5.jpg" alt="">
+                    <p>フィロデンドロン<br>
+                        <span class="price">¥19,800</span>
+                    </p>
+                </a>
+                <a href="product.html#item6" class="item">
+                    <img src="images/plant6.jpg" alt="">
+                    <p>モンステラ<br>
+                        <span class="price">¥19,800</span>
+                    </p>
+                </a>
+                </div>
+                <a href="product.html" class="btn">VIEW ALL</a>
+            </div>
+        </section>
+
+        <section id="news" class="js-fade">
+            <div class="container">
+                <h2 class="english-title">NEWS<span class="sub-title">お知らせ</span></h2>
+                <ul class="news-list">
+                    <li><a href="news-detail.html?id=0"><span class="date">2026.02.10</span><span class="category">INFO</span><span class="title">春の新作リースが入荷しました</span></a></li>
+                    <li><a href="news-detail.html?id=1"><span class="date">2026.02.05</span><span class="category">EVENT</span><span class="title">週末ワークショップ「ハーブと暮らす」開催</span></a></li>
+                    <li><a href="news-detail.html?id=2"><span class="date">2026.01.28</span><span class="category">INFO</span><span class="title">オンラインショップの送料改定について</span></a></li>
+                    <li><a href="news-detail.html?id=3"><span class="date">2026.01.15</span><span class="category">BLOG</span><span class="title">スタッフが教える、冬のミントの育て方</span></a></li>
+                    <li><a href="news-detail.html?id=4"><span class="date">2026.01.05</span><span class="category">INFO</span><span class="title">新年明けましておめでとうございます</span></a></li>
+                    <li><a href="news-detail.html?id=5"><span class="date">2025.12.20</span><span class="category">CAMPAIGN</span><span class="title">クリスマスギフトセット予約受付中</span></a></li>
+                </ul>
+                <a href="news.html" class="btn">VIEW ALL</a>
+            </div>
+        </section>
+
+        <section id="shop" class="js-fade">
+    <div class="container">
+        <h2 class="english-title">SHOP INFO<span class="sub-title">店舗情報</span></h2>
+        <div class="info-content">
+            <div class="info-text">
+                <dl>
+                    <dt>ADDRESS</dt>
+                    <dd>〒504-0000 岐阜県各務原市那加 1-2-3</dd>
+                    
+                    <dt>TEL</dt>
+                    <dd>058-000-0000</dd>
+
+                    <dt>OPEN</dt>
+                    <dd>11:00 - 18:00</dd>
+
+                    <dt>CLOSED</dt>
+                    <dd>月曜日</dd>
+                </dl>
+                <div class="shop-sns">
+                    <a href="https://instagram.com" target="_blank">Instagram</a>
+                </div>
+            </div>
+            <div class="info-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13002.8228394464!2d136.836932!3d35.399026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60030588147d1b31%3A0xc08832a8291f03f!2z6YKj5Yqg6aeF!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp" 
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <footer><p>© 2026 Mint and Leaf</p></footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

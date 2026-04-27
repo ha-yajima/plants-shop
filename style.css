@@ -1,0 +1,877 @@
+/* --- 共通変数 --- */
+:root {
+    --bg-box: #ffffff;
+    --bg-main: #f7f9f8;
+    --header-color: #deeae5;
+    --text-color: #4A5551;
+    --accent-color: #7a928a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-color);
+    font-family: "Century Gothic","Noto Sans JP", sans-serif;
+    letter-spacing: 0.03em;
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+/* 背景ロゴ */
+.fixed-logo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    max-width: 600px;
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.fixed-logo img {
+    width: 100%;
+    height: auto;
+}
+
+/* ヘッダー */
+html {
+    scroll-behavior: smooth; /* スクロールを滑らかにする */
+    scroll-padding-top: 120px; /* ヘッダーの高さ分（約80px）だけ手前で止める */
+}
+:target {
+    scroll-margin-top: 100px; /* 要素の「止まる位置」を強制的に下にずらす */
+}
+header {
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    background-color: var(--header-color);
+    display: flex;
+    align-items: center;
+}
+
+header .logo {
+    position: absolute;
+    left: 4%;
+    z-index: 105;
+    display: flex;       /* 横並びにする */
+    align-items: center; /* 垂直方向中央に揃える */
+    text-decoration: none;
+    gap: 12px;           /* ロゴと店名の間の余白 */
+}
+
+/* ロゴ画像自体の設定（重なりを防ぐために absolute を外す） */
+header .logo img {
+    width: 45px;         /* 店名が入るので少し小さめに */
+    height: auto;
+    display: block;      /* 余計な隙間を消す */
+}
+
+.logo-text {
+    font-family: "Century Gothic", sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    white-space: nowrap; /* 改行させない */
+}
+
+/* スマホでの微調整 */
+@media (max-width: 480px) {
+    header .logo {
+        gap: 8px;
+    }
+    .logo-text {
+        font-size: 0.95rem;
+    }
+    header .logo img {
+        width: 35px;
+    }
+}
+
+/* 下層ページ用のヘッダーエリア */
+.page-header {
+    padding: 120px 0 60px; /* ヘッダーに被らないよう上をあける */
+    text-align: center;
+    background-color: #f9f9f9; /* 少し背景色を変えると別ページ感が出ます */
+}
+
+.page-header h1 {
+    font-family: "Century Gothic", sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+    /* ここを追加 */
+    letter-spacing: 0.2em; /* 数字を大きくするほど広がります */
+    text-transform: uppercase; /* ついでに大文字にするとさらに雰囲気が出ます（お好みで） */
+}
+
+.page-header p {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* 商品一覧の間隔調整 */
+.product-list {
+    padding: 80px 0;
+}
+
+/* ハンバーガー */
+.hamburger {
+    position: relative;
+    z-index: 300;
+    margin-left: auto;
+    margin-right: 4%;
+    width: 24px;
+    height: 14px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 1.8px;
+    background-color: var(--text-color);
+    position: absolute;
+    left: 0;
+    transition: 0.3s;
+}
+
+
+.line-top {
+    top: 0;
+}
+
+.line-mid {
+    top: 6px;
+}
+
+.line-btm {
+    top: 12px;
+}
+
+.hamburger.active .line-top {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger.active .line-mid {
+    opacity: 0;
+}
+
+.hamburger.active .line-btm {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+.nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background-color: var(--header-color);
+    transition: 0.6s;
+    z-index: 250;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-menu.active {
+    right: 0;
+}
+
+.nav-menu li {
+    margin: 25px 0;
+    list-style: none;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    font-family: "Century Gothic", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+}
+
+/* ヒーロー (Swiper) */
+.hero {
+    width: 92%;
+    max-width: 1000px;
+    margin: 90px auto 30px;
+    aspect-ratio: 4 / 3;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .hero {
+        margin: 110px auto 40px;
+        aspect-ratio: 16 / 9;
+        border-radius: 30px;
+    }
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* セクション・アニメーション */
+section {
+    padding: 40px 0;
+}
+
+@media (min-width: 768px) {
+    section {
+        padding: 80px 0;
+    }
+}
+
+.js-fade {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.5s cubic-bezier(0.33, 1, 0.68, 1), transform 1.5s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.js-fade.is-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.container {
+    background-color: var(--bg-box);
+    padding: 50px 6%;
+    border-radius: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    width: 92%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding: 80px 6%;
+        border-radius: 60px;
+    }
+}
+
+/* タイトル */
+.english-title {
+    font-family: "Century Gothic", sans-serif;
+    letter-spacing: 0.2em;
+    font-weight: bold;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+.sub-title {
+    display: block;
+    font-size: 0.75rem;
+    font-family: "Noto Sans JP", sans-serif;
+    color: var(--accent-color);
+    letter-spacing: 0.1em;
+    font-weight: 400;
+}
+
+@media (min-width: 768px) {
+    .english-title {
+        font-size: 2.2rem;
+        margin-bottom: 50px;
+    }
+}
+
+/* 商品グリッド */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 40px 0;
+}
+
+/* 商品アイテムのベース */
+/* 1. aspect-ratioを外して、画像と文字を分ける */
+.item {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 20px;
+    text-decoration: none;
+    background: #fff; /* 背景を白に */
+    transition: 0.4s;
+}
+/* 画像の上の文字 */
+/* 3. 文字を画像の下に出す */
+.item p {
+    position: static; /* absoluteをやめる */
+    padding: 15px 10px;
+    background: #fff;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.item p .price {
+    display: block; /* 改行させる */
+    margin-top: 5px;
+    color: #888;
+    font-size: 0.8rem;
+}
+/* ホバー時の動き（ふわっと浮き上がる） */
+.item:hover {
+    transform: translateY(-10px); /* 上に10px浮く */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* 影を強くして浮遊感を出す */
+}
+
+/* 画像の設定 */
+.item img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+}
+
+/* ホバー時に画像を少し拡大（より印象的に） */
+.item:hover img {
+    transform: scale(1.1);
+}
+
+
+
+/* バッジ（NEWスタンプ）のスタイル */
+.badge {
+    font-family: "Century Gothic", sans-serif;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: rgba(255, 255, 255, 0.9); /* 白を少し透かせて上品に */
+    color: var(--accent-color);
+    padding: 3px 10px;
+    font-size: 0.65rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    border-radius: 2px; /* 角を丸めすぎないのがコツ */
+    z-index: 2; /* 写真より上に表示 */
+    pointer-events: none; /* バッジがクリックを邪魔しないように */
+}
+
+@media (min-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* NEWS LIST */
+.news-list {
+    list-style: none;
+    margin: 20px 0;
+}
+
+@media (min-width: 768px) {
+    .news-list {
+        margin: 40px 0;
+    }
+}
+
+.news-list li {
+    border-bottom: 1px solid #eee;
+}
+
+.news-list a {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 15px 5px;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+@media (min-width: 768px) {
+    .news-list a {
+        padding: 20px 10px;
+        flex-wrap: nowrap;
+    }
+}
+
+.news-list .date {
+    font-size: 0.75rem;
+    width: 85px;
+    color: #999;
+    flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+    .news-list .date {
+        font-size: 0.8rem;
+        width: 100px;
+    }
+}
+
+.news-list .category {
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 15px;
+    font-size: 0.65rem;
+    width: 65px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+    .news-list .category {
+        padding: 2px 10px;
+        margin-right: 20px;
+        font-size: 0.7rem;
+        width: 80px;
+    }
+}
+
+.news-list .title {
+    font-size: 0.9rem;
+    flex: 1;
+    min-width: 200px;
+}
+
+@media (min-width: 768px) {
+    .news-list .title {
+        font-size: 1rem;
+    }
+}
+
+/* 絞り込みボタンの親要素 */
+/* 絞り込みボタン */
+.filter-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 8px 18px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: var(--accent-color) !important;
+    color: #ffffff !important;
+    border-color: var(--accent-color) !important;
+}
+
+/* ★ここが重要：隠すための設定 */
+.news-item.is-hide {
+    display: none !important;
+}
+/* 透明化を解除して強制表示する */
+.js-fade {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* ニュースリストの基本表示 */
+.news-list {
+    display: block !important;
+    padding: 0;
+}
+
+/* ニュースアイテムの表示設定 */
+.news-item {
+    display: list-item !important; /* 箇条書きとして表示 */
+}
+
+/* 絞り込み時に消すための設定（優先度を最大に） */
+.news-item.is-hide {
+    display: none !important;
+}
+
+/* 絞り込み時に隠すためのクラス */
+.news-item.is-hide {
+    display: none;
+}
+
+/* --- News Detail --- */
+.news-detail {
+    margin-top: 120px; /* ヘッダーとの距離 */
+    margin-bottom: 80px;
+    max-width: 800px; /* 読みやすい幅に絞る */
+}
+
+.detail-header {
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 30px;
+    margin-bottom: 40px;
+}
+
+.detail-header .date {
+    display: block;
+    font-size: 0.9rem;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.detail-header .category {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 2px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    margin-bottom: 20px;
+}
+
+.detail-header h1 {
+    font-size: 1.8rem;
+    line-height: 1.4;
+    color: var(--text-color);
+}
+
+.detail-img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.detail-content p {
+    margin-bottom: 25px;
+    line-height: 2;
+}
+
+.detail-footer {
+    margin-top: 60px;
+    text-align: center;
+}
+
+/* main-text内のデザインを強化 */
+.main-text {
+    max-width: 650px; /* 一行が長すぎないように制限 */
+    margin: 0 auto;   /* 中央寄せ */
+    font-size: 1rem;
+    line-height: 2.2; /* 行間を広げて「ゆとり」を出す */
+    letter-spacing: 0.03em;
+    color: #555;
+}
+
+/* 最初の1文字を少し大きくしたり、段落の間隔を広げる */
+.main-text br {
+    display: block;
+    content: "";
+    margin-top: 15px; /* 改行の間隔を少し広げる */
+}
+
+.detail-img {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* 画像のサイズを統一してガタつきを防ぐ */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    /* ふわっと表示させるアニメーション */
+    animation: slideUp 1s ease forwards;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 前後のナビゲーション */
+.post-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.post-nav a {
+    text-decoration: none;
+    color: var(--accent-color);
+    font-family: "Century Gothic", sans-serif;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.post-nav a:hover {
+    opacity: 0.6;
+}
+
+.post-nav .disabled {
+    width: 50px; /* 位置調整用 */
+}
+/* SHOP INFO */
+.info-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.info-text {
+    text-align: left;
+}
+
+.info-text dl dt {
+    font-family: "Century Gothic", sans-serif;
+    font-weight: bold;
+    color: var(--accent-color);
+    letter-spacing: 0.1em;
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+}
+
+.info-text dl dd {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+/* Instagramボタン */
+.shop-sns {
+    margin-top: 10px;
+}
+
+.shop-sns a {
+    display: inline-block;
+    padding: 12px 40px;
+    background-color: var(--accent-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-family: "Century Gothic", sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    transition: 0.3s;
+}
+
+.shop-sns a:hover {
+    opacity: 0.8;
+}
+
+/* マップ */
+.info-map {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.info-map iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    border: none;
+}
+
+@media (min-width: 768px) {
+    .info-content {
+        flex-direction: row;
+        gap: 5%;
+        align-items: flex-start;
+    }
+    .info-text {
+        width: 35%;
+    }
+    .info-map {
+        width: 60%;
+    }
+}
+
+/* モーダルの背景 */
+.modal {
+    display: none; /* 最初は隠す */
+    position: fixed;
+    z-index: 2000;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px); /* 背景をぼかすとお洒落 */
+    animation: fadeIn 0.3s;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* モーダル内の画像 */
+/* モーダルの白枠（カード本体） */
+.modal-content {
+    background-color: #fff;
+    width: 90%;
+    max-width: 800px; /* 横並びにするので少し広げる */
+    max-height: 80vh;
+    border-radius: 15px;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    display: flex; /* 横並びにする設定 */
+    flex-direction: row; 
+}
+
+/* 画像エリア：カードの左側半分を占有 */
+.modal-content img {
+    width: 50%; /* 半分を画像に */
+    height: auto;
+    object-fit: cover; /* 縦長写真を枠に合わせて綺麗に収める */
+}
+
+/* テキストエリア：カードの右側半分 */
+.modal-info {
+    width: 50%;
+    padding: 40px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 中身を上下中央に */
+}
+
+.modal-info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-family: "Century Gothic", sans-serif;
+}
+
+.modal-info .description {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.modal-info .details {
+    font-size: 0.85rem;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+/* 閉じるボタン */
+.modal-close {
+    position: absolute;
+    top: 20px; right: 35px;
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+}
+#modal-caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* スマホ用の設定：画面が狭いときは縦並びに戻す */
+@media (max-width: 768px) {
+    .modal-content {
+        flex-direction: column;
+        max-width: 400px;
+    }
+    .modal-content img {
+        width: 100%;
+        height: 40vh; /* スマホでは画像の高さを抑える */
+    }
+    .modal-info {
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+/* ボタン共通 */
+.btn {
+    display: block;
+    width: fit-content;
+    margin: 30px auto 0;
+    padding: 12px 50px;
+    background-color: var(--accent-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 40px;
+    font-size: 0.85rem;
+    border: 1px solid var(--accent-color);
+    transition: 0.3s;
+    font-family: "Century Gothic", sans-serif;
+    
+}
+
+.btn:hover {
+    background-color: transparent;
+    color: var(--accent-color);
+}
+
+/* ナビゲーション内のHOWTO専用装飾 */
+.nav-guide {
+    position: relative;
+    margin-top: 40px !important; /* 他のメニューと少し距離を離す */
+    padding: 10px 20px;
+    border: 1px solid var(--accent-color); /* 枠線で囲む */
+    border-radius: 10px;
+}
+
+.guide-label {
+    position: absolute;
+    top: -10px; /* 枠線の左上に乗せる */
+    left: 10px;
+    background-color: var(--header-color); /* 背景色と同じにして線を消す */
+    padding: 0 8px;
+    font-size: 0.6rem;
+    font-family: "Century Gothic", sans-serif;
+    color: var(--accent-color);
+    font-weight: bold;
+    letter-spacing: 0.1em;
+}
+
+.nav-guide a {
+    font-size: 0.95rem !important; /* 少し控えめなサイズに */
+    letter-spacing: 0.1em !important;
+}
+
+/* ホバーした時に少し背景色をつけるとかわいいです */
+.nav-guide:hover {
+    background-color: rgba(122, 146, 138, 0.1);
+    transition: 0.3s;
+}
+
+footer {
+    text-align: center;
+    padding: 40px 0;
+    font-size: 0.7rem;
+}
