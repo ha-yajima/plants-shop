@@ -7,7 +7,8 @@
 
 <img width="1824" height="870" alt="plants" src="https://github.com/user-attachments/assets/9e461fa0-a090-4578-bb93-5e4725bce300" />
 
-<img width="1859" height="874" alt="plant-popup" src="https://github.com/user-attachments/assets/ce771e95-7d66-407b-aaca-94fe28c0fdf4" />
+<img width="1866" height="874" alt="plantpopup" src="https://github.com/user-attachments/assets/91f6377a-bcf0-4a79-b57e-47de5a385d9d" />
+
 
 
 ## 使用技術
